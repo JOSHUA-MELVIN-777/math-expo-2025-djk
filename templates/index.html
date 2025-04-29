@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dijkstra’s Algorithm - Shortest Path</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Dijkstra’s Algorithm: Shortest Path Calculator</h1>
+
+    <form action="/calculate" method="POST">
+        <label for="num_nodes">Number of Nodes:</label>
+        <input type="number" id="num_nodes" name="num_nodes" required min="1" max="10"><br><br>
+
+        <div id="nodes_input"></div>
+
+        <label for="edges">Edges (format: source destination weight):</label><br>
+        <textarea name="edges" id="edges" rows="5" required></textarea><br><br>
+
+        <label for="start_node">Starting Node:</label>
+        <input type="text" id="start_node" name="start_node" required><br><br>
+
+        <button type="submit">Solve</button>
+    </form>
+
+    {% if shortest_distances %}
+        <h2>Shortest Distances from {{ start_node }}:</h2>
+        <ul>
+            {% for node, distance in shortest_distances.items() %}
+                <li>To {{ node }}: {{ distance }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <script>
+        // Dynamically generate input fields for nodes
+        const numNodesInput = document.getElementById('num_nodes');
+        numNodesInput.addEventListener('input', function() {
+            const numNodes = numNodesInput.value;
+            const nodesInputDiv = document.getElementById('nodes_input');
+            nodesInputDiv.innerHTML = '';
+
+            for (let i = 1; i <= numNodes; i++) {
+                nodesInputDiv.innerHTML += `<label for="node${i}">Node ${i} Name:</label><input type="text" id="node${i}" name="node${i}" required><br><br>`;
+            }
+        });
+    </script>
+</body>
+</html>
