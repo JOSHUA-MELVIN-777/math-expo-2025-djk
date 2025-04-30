@@ -1,33 +1,34 @@
 /* General Body Styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
+    background-color: #0B0C2A; /* dark blue background */
     margin: 0;
     padding: 20px;
-    color: #333;
+    color: #f0f0f0;
 }
 
+/* Headers */
 h1 {
     text-align: center;
-    color: #333;
+    color: #ffffff;
     margin-bottom: 30px;
 }
 
 h2 {
-    color: #444;
+    color: #e0e0ff;
 }
 
-/* Form Styling */
+/* Form Container */
 form {
-    background-color: #fff;
+    background-color: #1c1f4a; /* lighter blue */
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 50%;
-    margin: 0 auto;
-    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    width: 60%;
+    margin: auto;
 }
 
+/* Labels */
 label {
     font-size: 16px;
     font-weight: bold;
@@ -35,47 +36,44 @@ label {
     margin-bottom: 8px;
 }
 
-input[type="number"],
+/* Inputs, Textareas, and Buttons */
 input[type="text"],
+input[type="number"],
 textarea,
 button {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: none;
+    border-radius: 5px;
     font-size: 14px;
+    background-color: #f8f8f8;
+    color: #000;
 }
 
 textarea {
-    height: 120px;
+    height: 100px;
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #4A90E2;
     color: white;
-    border: none;
     font-size: 16px;
     cursor: pointer;
-    padding: 15px;
-    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #357ABD;
 }
 
-button:focus {
-    outline: none;
-}
-
-/* Error Message Styling */
+/* Error Message */
 p {
-    color: red;
+    color: #ff6b6b;
     font-weight: bold;
 }
 
-/* Results Styling */
+/* Results */
 ul {
     list-style-type: none;
     padding-left: 0;
@@ -84,9 +82,10 @@ ul {
 ul li {
     font-size: 18px;
     margin: 10px 0;
+    color: #ffffff;
 }
 
-/* Responsiveness */
+/* Responsive */
 @media screen and (max-width: 768px) {
     form {
         width: 90%;
